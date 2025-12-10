@@ -1,0 +1,2429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0d4d3a">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Proposta Exclusiva | Weblytics para CDT Odontologia/Prime Odonto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --primary: #006d5b;
+            --secondary: #00a896;
+            --accent: #02c39a;
+            --blue: #4cc9f0;
+            --cherry: #ff6b6b;
+            --cherry-light: #ff8e8e;
+            --cherry-dark: #e63946;
+            --whatsapp: #25D366;
+            --dark: #0a1a14;
+            --light: #ffffff;
+            --gray: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --gradient-main: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            --gradient-cherry: linear-gradient(135deg, var(--cherry), var(--cherry-light), var(--cherry-dark));
+            --gradient-text: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            --shadow-glow: 0 0 60px rgba(0, 168, 150, 0.3);
+            --shadow-cherry: 0 0 60px rgba(255, 107, 107, 0.4);
+            --shadow-whatsapp: 0 0 30px rgba(37, 211, 102, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 26, 20, 0.85);
+            z-index: -1;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-main);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* Partículas de fundo - tema odontológico */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .particle.tooth {
+            width: 10px;
+            height: 10px;
+            background: var(--light);
+            border-radius: 50% 50% 0 0;
+            opacity: 0.2;
+        }
+
+        .particle.cherry {
+            width: 6px;
+            height: 6px;
+            background: var(--cherry);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.3; }
+            25% { transform: translateY(-100px) translateX(50px) rotate(90deg); opacity: 0.6; }
+            50% { transform: translateY(-200px) translateX(-30px) rotate(180deg); opacity: 0.3; }
+            75% { transform: translateY(-100px) translateX(80px) rotate(270deg); opacity: 0.5; }
+        }
+
+        /* Header Mobile-First */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 109, 91, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 168, 150, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 12px 20px;
+            background: rgba(0, 109, 91, 0.98);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-text);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 3s linear infinite;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 1.3rem;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .header-wpp {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--whatsapp);
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse-wpp 2s infinite;
+        }
+
+        @keyframes pulse-wpp {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+        }
+
+        .header-wpp:hover {
+            transform: scale(1.05);
+        }
+
+        .header-wpp i {
+            font-size: 1.1rem;
+        }
+
+        .header-wpp span {
+            display: none;
+        }
+
+        /* Experience Badge - Flutuante */
+        .experience-badge {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, rgba(0, 168, 150, 0.3), rgba(2, 195, 154, 0.2));
+            border: 1px solid var(--accent);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            animation: fadeInDown 1s ease 0.5s backwards, glow-badge 3s ease-in-out infinite;
+            text-align: center;
+            max-width: 90%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+
+        @keyframes glow-badge {
+            0%, 100% { box-shadow: 0 0 20px rgba(2, 195, 154, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(2, 195, 154, 0.5); }
+        }
+
+        .experience-badge i {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 140px 20px 100px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(0, 109, 91, 0.3) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(0, 168, 150, 0.2) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 50%, rgba(2, 195, 154, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 100%;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-client {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-client i {
+            color: var(--accent);
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.8rem, 7vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero h1 .highlight {
+            background: var(--gradient-text);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 3s linear infinite;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: clamp(0.95rem, 3vw, 1.15rem);
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 35px;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: fadeInUp 1s ease 0.8s backwards;
+        }
+
+        .btn {
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: var(--light);
+            font-size: 1.1rem;
+            padding: 18px 35px;
+            animation: pulse-wpp 2s infinite;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-whatsapp);
+        }
+
+        .btn-whatsapp i {
+            font-size: 1.3rem;
+        }
+
+        .btn-secondary {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--light);
+        }
+
+        .btn-secondary:hover, .btn-secondary:active {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .btn-accent:hover {
+            background: #00d4b4;
+            transform: translateY(-3px);
+        }
+
+        .btn-cherry {
+            background: var(--gradient-cherry);
+            color: var(--light);
+            font-weight: 700;
+            animation: pulse-cherry 2s infinite;
+        }
+
+        @keyframes pulse-cherry {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+        }
+
+        .btn-cherry:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-cherry);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.8rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-12px); }
+            60% { transform: translateX(-50%) translateY(-6px); }
+        }
+
+        /* Navigation Pills - Mobile Optimized */
+        .nav-section {
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+            padding: 15px;
+            background: rgba(0, 109, 91, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 168, 150, 0.3);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .nav-section::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            min-width: max-content;
+            padding: 0 5px;
+        }
+
+        .nav-tab {
+            padding: 12px 20px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--gray);
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover, .nav-tab:active {
+            color: var(--light);
+            border-color: var(--secondary);
+        }
+
+        .nav-tab.active {
+            background: var(--gradient-main);
+            background-size: 200% auto;
+            animation: gradientMove 4s ease infinite;
+            color: var(--light);
+            border-color: transparent;
+        }
+
+        .nav-tab.cherry {
+            border-color: var(--cherry);
+        }
+
+        .nav-tab.cherry.active {
+            background: var(--gradient-cherry);
+            background-size: 200% auto;
+            animation: gradientMove 4s ease infinite;
+            color: var(--light);
+            border-color: transparent;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            padding: 60px 0;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.6rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 .highlight {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-header h2 .cherry-text {
+            background: var(--gradient-cherry);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 168, 150, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card:hover::before, .glass-card:active::before {
+            opacity: 1;
+        }
+
+        .glass-card:hover, .glass-card:active {
+            transform: translateY(-3px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .cherry-card {
+            border: 2px solid var(--cherry);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 142, 142, 0.05));
+            animation: pulse-cherry-card 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-cherry-card {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(255, 107, 107, 0.4); }
+        }
+
+        .cherry-card::before {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, transparent 50%);
+        }
+
+        .cherry-card:hover, .cherry-card:active {
+            border-color: var(--cherry-light);
+            box-shadow: var(--shadow-cherry);
+        }
+
+        /* Experience Intro Card */
+        .experience-intro {
+            background: linear-gradient(135deg, rgba(0, 168, 150, 0.2), rgba(2, 195, 154, 0.15));
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            margin-bottom: 40px;
+            animation: glow-badge 3s ease-in-out infinite;
+        }
+
+        .experience-intro i {
+            font-size: 2.5rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .experience-intro h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-intro p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Overview Section */
+        .overview-text {
+            margin-bottom: 40px;
+        }
+
+        .overview-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .overview-text p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .needs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .need-item {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .need-item:hover, .need-item:active {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .need-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-main);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .need-icon i {
+            font-size: 1.2rem;
+            color: var(--light);
+        }
+
+        .need-content h4 {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+
+        .need-content p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Service Packages Section */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .package-card {
+            text-align: center;
+            padding: 35px 25px;
+            position: relative;
+        }
+
+        .package-card.featured::after {
+            content: '⭐ MAIS COMPLETO';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-main);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .package-card.cherry-card.featured::after {
+            content: '🏥 CEREJA DO BOLO';
+            background: var(--gradient-cherry);
+        }
+
+        .package-card .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-main);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .package-card.cherry-card .icon-wrapper {
+            background: var(--gradient-cherry);
+        }
+
+        .package-card:hover .icon-wrapper, .package-card:active .icon-wrapper {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .package-card .icon-wrapper i {
+            font-size: 1.8rem;
+            color: var(--light);
+        }
+
+        .package-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .package-card.cherry-card h3 {
+            color: var(--cherry-light);
+        }
+
+        .package-card .price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 15px 0;
+        }
+
+        .package-card.cherry-card .price {
+            background: var(--gradient-cherry);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .package-card .price span {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .package-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .package-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--glass-border);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .package-features li i {
+            color: var(--secondary);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .cherry-card .package-features li i {
+            color: var(--cherry);
+        }
+
+        .select-package-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 0.95rem;
+            margin-top: 20px;
+        }
+
+        /* Cherry Features Section */
+        .cherry-features {
+            margin: 40px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 142, 142, 0.05));
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--cherry);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-cherry);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon i {
+            font-size: 1.5rem;
+            color: var(--light);
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--cherry-light);
+        }
+
+        .feature-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .service-category {
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(0, 168, 150, 0.1);
+            border: 1px solid rgba(0, 168, 150, 0.2);
+        }
+
+        .service-category h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .service-category h4 i {
+            color: var(--secondary);
+        }
+
+        .service-category ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .service-category li {
+            padding: 8px 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-category li::before {
+            content: '🦷';
+            font-size: 0.8rem;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 15px;
+            padding: 25px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover, .benefit-item:active {
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .benefit-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .benefit-item h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--light);
+        }
+
+        .benefit-item p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gradient-main);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background: var(--gradient-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover, .timeline-content:active {
+            border-color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .timeline-content h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .timeline-estimate {
+            text-align: center;
+            margin-top: 40px;
+            padding: 35px 25px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+        }
+
+        .timeline-estimate h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .timeline-estimate .days {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .timeline-estimate p {
+            color: var(--gray);
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* Accept Section */
+        .accept-section {
+            text-align: center;
+        }
+
+        .accept-card {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 40px 25px;
+        }
+
+        .accept-card .quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.85);
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .accept-card .quote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -25px;
+            left: -5px;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0.3;
+        }
+
+        .signature-box {
+            text-align: left;
+            padding: 25px;
+            background: var(--glass);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .signature-box h4 {
+            font-size: 1.15rem;
+            margin-bottom: 5px;
+        }
+
+        .signature-box .role {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .signature-box .motto {
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .ps-note {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .ps-note strong {
+            color: var(--accent);
+        }
+
+        /* WhatsApp CTA Section */
+        .whatsapp-cta-section {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(0, 168, 150, 0.1));
+            border: 2px solid var(--whatsapp);
+            border-radius: 25px;
+            padding: 40px 25px;
+            text-align: center;
+            animation: glow-wpp 3s ease-in-out infinite;
+        }
+
+        @keyframes glow-wpp {
+            0%, 100% { box-shadow: 0 0 20px rgba(37, 211, 102, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(37, 211, 102, 0.4); }
+        }
+
+        .whatsapp-cta-section i.bi-whatsapp {
+            font-size: 3.5rem;
+            color: var(--whatsapp);
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce-icon 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce-icon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .whatsapp-cta-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .whatsapp-cta-section .btn-whatsapp {
+            font-size: 1.1rem;
+            padding: 18px 40px;
+        }
+
+        .whatsapp-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-step {
+            text-align: center;
+        }
+
+        .whatsapp-step .step-num {
+            width: 30px;
+            height: 30px;
+            background: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .whatsapp-step p {
+            font-size: 0.75rem;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 109, 91, 0.8);
+            border-top: 1px solid rgba(0, 168, 150, 0.3);
+            padding: 50px 20px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .footer-contact h4 {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .footer-contact .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .footer-contact .contact-item i {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover, .social-icons a:active {
+            background: var(--gradient-main);
+            border-color: transparent;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0, 168, 150, 0.3);
+        }
+
+        .footer-bottom p {
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom .validity {
+            color: var(--accent);
+            margin-top: 8px;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 65px;
+            height: 65px;
+            background: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: var(--shadow-whatsapp);
+            animation: pulse-wpp 2s infinite;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover, .whatsapp-float:active {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .whatsapp-float .tooltip {
+            position: absolute;
+            right: 75px;
+            background: white;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float .tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 8px solid transparent;
+            border-left-color: white;
+        }
+
+        .whatsapp-float:hover .tooltip, .whatsapp-float:active .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .print-btn:hover, .print-btn:active {
+            background: var(--gradient-main);
+            border-color: transparent;
+            transform: scale(1.1);
+        }
+
+        .print-btn i {
+            font-size: 1.2rem;
+            color: var(--light);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: confetti-fall 3s linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+            100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--whatsapp);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            z-index: 9999;
+            transition: bottom 0.5s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .toast.show {
+            bottom: 100px;
+        }
+
+        /* Desktop Enhancements */
+        @media (min-width: 768px) {
+            header {
+                padding: 20px 40px;
+            }
+
+            .header-wpp span {
+                display: inline;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 150px 40px 100px;
+            }
+
+            .hero-cta {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .btn {
+                width: auto;
+            }
+
+            .container {
+                padding: 0 40px;
+            }
+
+            .needs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .packages-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .package-card.featured {
+                transform: scale(1.02);
+            }
+
+            .timeline {
+                padding-left: 50px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-number {
+                left: -50px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                text-align: left;
+            }
+
+            .footer-contact .contact-item {
+                justify-content: flex-start;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+
+            .whatsapp-float {
+                bottom: 30px;
+                right: 30px;
+            }
+
+            .print-btn {
+                bottom: 110px;
+                right: 30px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .particles, .print-btn, .nav-section, .whatsapp-float, .experience-badge, .progress-bar {
+                display: none !important;
+            }
+
+            header {
+                position: relative;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .content-section {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+
+            .glass-card, .package-card, .timeline-content {
+                border: 1px solid #ddd;
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Partículas de fundo - tema odontológico -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <i class="bi bi-tooth"></i>
+            WEBLYTICS
+        </div>
+        <a href="https://wa.me/5521997596402?text=Olá! Vi a proposta da Weblytics para a CDT Odontologia/Prime Odonto e gostaria de conversar!" class="header-wpp" target="_blank">
+            <i class="bi bi-whatsapp"></i>
+            <span>Falar Agora</span>
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-client">
+                <i class="bi bi-heart-pulse"></i>
+                <span>Proposta Exclusiva para CDT Odontologia/Prime Odonto</span>
+            </div>
+            <h1>
+                Presença Digital de <span class="highlight">Excelência Odontológica</span>
+            </h1>
+            <p>Site profissional + Sistema de agendamento inteligente + Portal do paciente. Tudo para transformar sua clínica em referência digital no mercado odontológico.</p>
+            <div class="hero-cta">
+                <a href="https://wa.me/5521997596402?text=Olá Pedro! Quero fechar o pacote CEREJA DO BOLO para a CDT Odontologia/Prime Odonto! 🏥🦷" class="btn btn-cherry" target="_blank" id="hero-wpp-btn">
+                    <i class="bi bi-whatsapp"></i>
+                    Quero a Cereja do Bolo!
+                </a>
+                <a href="#overview" class="btn btn-secondary" id="explore-btn">
+                    <i class="bi bi-eye"></i>
+                    Explorar Proposta
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Role para explorar</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="nav-section">
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="overview">
+                <i class="bi bi-house"></i>
+                Visão Geral
+            </button>
+            <button class="nav-tab" data-tab="packages">
+                <i class="bi bi-box-seam"></i>
+                Pacotes
+            </button>
+            <button class="nav-tab cherry" data-tab="cherry">
+                <i class="bi bi-calendar-check"></i>
+                🏥 Cereja do Bolo
+            </button>
+            <button class="nav-tab" data-tab="services">
+                <i class="bi bi-heart-pulse"></i>
+                Serviços
+            </button>
+            <button class="nav-tab" data-tab="benefits">
+                <i class="bi bi-trophy"></i>
+                Benefícios
+            </button>
+            <button class="nav-tab" data-tab="timeline">
+                <i class="bi bi-calendar-check"></i>
+                Cronograma
+            </button>
+            <button class="nav-tab" data-tab="accept">
+                <i class="bi bi-whatsapp"></i>
+                Fechar
+            </button>
+        </div>
+    </nav>
+
+    <!-- Content Sections -->
+    <main class="container">
+        <!-- Overview Section -->
+        <section id="overview" class="content-section active">
+            <div class="experience-intro">
+                <i class="bi bi-magic"></i>
+                <h3>Percebeu o cuidado com esta proposta?</h3>
+                <p>Este é apenas um preview de como tratamos cada projeto. Sua clínica merece esse mesmo nível de excelência no digital!</p>
+            </div>
+
+            <div class="section-header">
+                <h2>Entendemos a <span class="highlight">Excelência da CDT Odontologia</span></h2>
+                <p>Reconhecemos a qualidade e profissionalismo que vocês oferecem aos pacientes</p>
+            </div>
+
+            <div class="overview-text">
+                <h3>Prezada equipe da CDT Odontologia/Prime Odonto,</h3>
+                <p>É com grande satisfação que a <strong>Weblytics</strong> apresenta esta proposta, elaborada após entendermos a necessidade de uma presença digital sólida, elegante e eficaz para sua clínica odontológica.</p>
+                <p>Nosso objetivo é traduzir a excelência do atendimento presencial para o ambiente digital, captando novos pacientes e otimizando a gestão da clínica.</p>
+            </div>
+
+            <h4 style="text-align: center; margin-bottom: 25px; font-size: 1.1rem; color: var(--accent);">
+                <i class="bi bi-bullseye"></i> O que identificamos como prioridades:
+            </h4>
+
+            <div class="needs-grid">
+                <div class="need-item">
+                    <div class="need-icon">
+                        <i class="bi bi-globe"></i>
+                    </div>
+                    <div class="need-content">
+                        <h4>Site Institucional Profissional</h4>
+                        <p>Que transmita confiança e credibilidade em qualquer dispositivo</p>
+                    </div>
+                </div>
+                <div class="need-item">
+                    <div class="need-icon">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+                    <div class="need-content">
+                        <h4>Agendamento Online</h4>
+                        <p>Sistema inteligente para pacientes marcarem consultas 24/7</p>
+                    </div>
+                </div>
+                <div class="need-item">
+                    <div class="need-icon">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <div class="need-content">
+                        <h4>Portal do Paciente</h4>
+                        <p>Área exclusiva com histórico e informações das consultas</p>
+                    </div>
+                </div>
+                <div class="need-item">
+                    <div class="need-icon">
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+                    <div class="need-content">
+                        <h4>Captação de Novos Pacientes</h4>
+                        <p>Estratégia digital para aumentar o fluxo de novos clientes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Section -->
+        <section id="packages" class="content-section">
+            <div class="section-header">
+                <h2>Pacotes <span class="highlight">Específicos</span></h2>
+                <p>Escolha a solução ideal para sua clínica odontológica</p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- Pacote 1 - Site Básico -->
+                <div class="glass-card package-card">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-globe"></i>
+                    </div>
+                    <h3>Site Institucional</h3>
+                    <div class="price">R$ 1.200<span> único</span></div>
+                    <ul class="package-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Site responsivo premium</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Página de serviços</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Equipe e especialidades</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Formulário de contato</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Otimização para Google</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Hospedagem (1º ano)</li>
+                    </ul>
+                    <a href="https://wa.me/5521997596402?text=Olá Pedro! Quero fechar o pacote SITE INSTITUCIONAL para a CDT Odontologia/Prime Odonto! 🦷" class="btn btn-secondary select-package-btn" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Escolher este pacote
+                    </a>
+                </div>
+
+                <!-- Pacote 2 - Site Avançado -->
+                <div class="glass-card package-card">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-stars"></i>
+                    </div>
+                    <h3>Site Avançado</h3>
+                    <div class="price">R$ 1.800<span> único</span></div>
+                    <ul class="package-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Tudo do pacote Site</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Blog integrado</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Galeria de casos</li>
+                        <li><i class="bi bi-check-circle-fill"></i> WhatsApp integrado</li>
+                        <li><i class="bi bi-check-circle-fill"></i> SEO completo</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Manutenção 6 meses</li>
+                    </ul>
+                    <div style="margin: 15px 0; padding: 10px; background: rgba(2, 195, 154, 0.1); border-radius: 10px;">
+                        <small style="color: var(--accent);"><i class="bi bi-star-fill"></i> Perfeito para captação de pacientes</small>
+                    </div>
+                    <a href="https://wa.me/5521997596402?text=Olá Pedro! Quero fechar o pacote SITE AVANÇADO para a CDT Odontologia/Prime Odonto! ⭐🦷" class="btn btn-accent select-package-btn" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Escolher este pacote
+                    </a>
+                </div>
+
+                <!-- Pacote 3 - Site + Sistema Básico -->
+                <div class="glass-card package-card">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-calendar-week"></i>
+                    </div>
+                    <h3>Site + Agenda Básica</h3>
+                    <div class="price">R$ 2.500<span> único</span></div>
+                    <ul class="package-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Site Avançado completo</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Sistema de agendamento</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Confirmação por WhatsApp</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Painel administrativo</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Manutenção 12 meses</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Treinamento da equipe</li>
+                    </ul>
+                    <a href="https://wa.me/5521997596402?text=Olá Pedro! Quero fechar o pacote SITE + AGENDA BÁSICA para a CDT Odontologia/Prime Odonto! 📅🦷" class="btn btn-accent select-package-btn" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Escolher este pacote
+                    </a>
+                </div>
+            </div>
+
+            <div class="comparison-note glass-card" style="margin-top: 30px; text-align: center;">
+                <h4><i class="bi bi-info-circle"></i> Parcelamento Disponível</h4>
+                <p>Todos os pacotes podem ser parcelados em até <strong>12x no cartão</strong> ou com condições especiais no PIX.</p>
+            </div>
+        </section>
+
+        <!-- Cherry Section -->
+        <section id="cherry" class="content-section">
+            <div class="section-header">
+                <h2>A <span class="cherry-text">Cereja do Bolo</span> 🏥</h2>
+                <p>Sistema completo de gestão odontológica com agendamento inteligente e portal do paciente</p>
+            </div>
+
+            <!-- Pacote Cereja do Bolo -->
+            <div class="glass-card cherry-card package-card featured">
+                <div class="icon-wrapper">
+                    <i class="bi bi-calendar-heart"></i>
+                </div>
+                <h3>Sistema Completo de Gestão</h3>
+                <div class="price">R$ 3.800<span> único</span></div>
+                <ul class="package-features">
+                    <li><i class="bi bi-check-circle-fill"></i> Tudo do Site Avançado</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Sistema de agendamento 24/7</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Portal do paciente online</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Lembretes automáticos</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Painel completo de gestão</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Manutenção 12 meses</li>
+                </ul>
+                <div style="margin: 15px 0; padding: 10px; background: rgba(255, 107, 107, 0.1); border-radius: 10px;">
+                    <small style="color: var(--cherry-light);"><i class="bi bi-lightning-charge-fill"></i> <strong>ECONOMIZE R$ 500</strong> em relação aos pacotes separados!</small>
+                </div>
+                <a href="https://wa.me/5521997596402?text=Olá Pedro! Quero fechar o pacote CEREJA DO BOLO para a CDT Odontologia/Prime Odonto! 🏥🦷" class="btn btn-cherry select-package-btn" target="_blank">
+                    <i class="bi bi-whatsapp"></i> Quero a Cereja do Bolo!
+                </a>
+            </div>
+
+            <!-- Features do Sistema -->
+            <div class="cherry-features">
+                <h3 style="text-align: center; margin: 40px 0 20px; color: var(--cherry-light);">
+                    <i class="bi bi-stars"></i> O que torna este sistema especial para clínicas:
+                </h3>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-calendar2-week"></i>
+                        </div>
+                        <h4>Agendamento Inteligente</h4>
+                        <p>Pacientes marcam consultas online 24/7. Sistema evita sobreposição e mostra horários reais disponíveis.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-bell"></i>
+                        </div>
+                        <h4>Lembretes Automáticos</h4>
+                        <p>WhatsApp e SMS automáticos para confirmação e lembrete de consultas. Redução significativa de faltas.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-file-medical"></i>
+                        </div>
+                        <h4>Portal do Paciente</h4>
+                        <p>Área exclusiva com histórico, receitas, próximas consultas e formulários pré-consulta.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-bar-chart-line"></i>
+                        </div>
+                        <h4>Dashboard Completo</h4>
+                        <p>Controle total da clínica: agenda, pacientes, financeiro, indicadores de performance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparativo de Valor -->
+            <div class="glass-card" style="margin-top: 40px; text-align: center;">
+                <h4 style="color: var(--cherry-light); margin-bottom: 15px;"><i class="bi bi-calculator"></i> Comparativo de Valor</h4>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+                    <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed var(--glass-border);">
+                        <span>Site Avançado</span>
+                        <strong>R$ 1.800</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed var(--glass-border);">
+                        <span>Sistema de Gestão (separado)</span>
+                        <strong>R$ 2.500</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 12px 0; font-size: 1.1rem; background: rgba(255, 107, 107, 0.1); border-radius: 10px; padding: 15px;">
+                        <span><strong>Total Separado</strong></span>
+                        <strong style="color: var(--gray); text-decoration: line-through;">R$ 4.300</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 12px 0; font-size: 1.3rem; color: var(--cherry-light);">
+                        <span><strong>CEREJA DO BOLO</strong></span>
+                        <strong>R$ 3.800</strong>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; color: var(--cherry-light);">
+                    <i class="bi bi-gift"></i> <strong>ECONOMIA DE R$ 500</strong> + Sistema integrado e otimizado
+                </p>
+            </div>
+
+            <!-- Benefícios do Sistema -->
+            <div class="glass-card" style="margin-top: 30px;">
+                <h4 style="color: var(--cherry-light); text-align: center; margin-bottom: 20px;">
+                    <i class="bi bi-graph-up-arrow"></i> ROI Garantido
+                </h4>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                    <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(255, 107, 107, 0.05); border-radius: 10px;">
+                        <div style="width: 40px; height: 40px; background: var(--cherry); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-calendar2-check" style="color: white;"></i>
+                        </div>
+                        <div>
+                            <strong style="color: var(--cherry-light);">Redução de 80% nas faltas</strong>
+                            <p style="color: var(--gray); font-size: 0.85rem; margin-top: 5px;">Com lembretes automáticos</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(255, 107, 107, 0.05); border-radius: 10px;">
+                        <div style="width: 40px; height: 40px; background: var(--cherry); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-arrow-up-right" style="color: white;"></i>
+                        </div>
+                        <div>
+                            <strong style="color: var(--cherry-light);">+40% novos pacientes</strong>
+                            <p style="color: var(--gray); font-size: 0.85rem; margin-top: 5px;">Com agendamento 24/7</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(255, 107, 107, 0.05); border-radius: 10px;">
+                        <div style="width: 40px; height: 40px; background: var(--cherry); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-clock" style="color: white;"></i>
+                        </div>
+                        <div>
+                            <strong style="color: var(--cherry-light);">30h/mês economizadas</strong>
+                            <p style="color: var(--gray); font-size: 0.85rem; margin-top: 5px;">Com automação de processos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="content-section">
+            <div class="section-header">
+                <h2>Serviços <span class="highlight">Odontológicos</span></h2>
+                <p>Como apresentaremos sua expertise no site</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-category">
+                    <h4><i class="bi bi-tooth"></i> Odontologia Geral</h4>
+                    <ul>
+                        <li>Consultas e diagnósticos</li>
+                        <li>Prevenção e limpeza</li>
+                        <li>Tratamento de cáries</li>
+                        <li>Clareamento dental</li>
+                        <li>Restaurações estéticas</li>
+                    </ul>
+                </div>
+
+                <div class="service-category">
+                    <h4><i class="bi bi-star"></i> Especialidades</h4>
+                    <ul>
+                        <li>Ortodontia</li>
+                        <li>Implantes dentários</li>
+                        <li>Próteses dentárias</li>
+                        <li>Endodontia (canal)</li>
+                        <li>Periodontia</li>
+                    </ul>
+                </div>
+
+                <div class="service-category">
+                    <h4><i class="bi bi-heart"></i> Estética Dental</h4>
+                    <ul>
+                        <li>Facetas de porcelana</li>
+                        <li>Lentes de contato</li>
+                        <li>Harmonização orofacial</li>
+                        <li>Clareamento a laser</li>
+                        <li>Design do sorriso</li>
+                    </ul>
+                </div>
+
+                <div class="service-category">
+                    <h4><i class="bi bi-people"></i> Especial</h4>
+                    <ul>
+                        <li>Odontopediatria</li>
+                        <li>Odontogeriatria</li>
+                        <li>ATM e DTM</li>
+                        <li>Cirurgia bucomaxilofacial</li>
+                        <li>Odontologia do sono</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card" style="margin-top: 30px; text-align: center;">
+                <h4 style="color: var(--accent); margin-bottom: 15px;"><i class="bi bi-palette"></i> Apresentação Profissional</h4>
+                <p style="color: var(--gray); font-size: 0.9rem;">
+                    Cada serviço terá uma página dedicada com: <strong>descrição detalhada</strong>, <strong>fotos ilustrativas</strong>, 
+                    <strong>benefícios</strong>, <strong>duração do tratamento</strong> e <strong>depoimentos de pacientes</strong>. 
+                    Tudo para converter visitantes em novos pacientes.
+                </p>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="content-section">
+            <div class="section-header">
+                <h2>Benefícios <span class="highlight">Exclusivos</span></h2>
+                <p>Por que escolher a Weblytics para sua clínica odontológica</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="bi bi-shield-check"></i>
+                    <div>
+                        <h4>Credibilidade Imediata</h4>
+                        <p>Site profissional transmite confiança antes mesmo do primeiro contato</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="bi bi-calendar-check"></i>
+                    <div>
+                                                <h4>Agendamento 24/7</h4>
+                        <p>Pacientes marcam consultas a qualquer hora, sem depender do horário comercial</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="bi bi-phone"></i>
+                    <div>
+                        <h4>Otimização Mobile-First</h4>
+                        <p>Site perfeito em celulares, onde 80% das buscas por dentistas acontecem</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="bi bi-search"></i>
+                    <div>
+                        <h4>Visibilidade no Google</h4>
+                        <p>Apareça nas primeiras posições quando pacientes buscarem "dentista perto de mim"</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <div>
+                        <h4>ROI Mensurável</h4>
+                        <p>Acompanhe quantos novos pacientes chegaram pelo site e agendamentos online</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="bi bi-headset"></i>
+                    <div>
+                        <h4>Suporte Especializado</h4>
+                        <p>Equipe técnica disponível para ajustes e treinamento da sua equipe</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROI Calculator -->
+            <div class="glass-card" style="margin-top: 40px;">
+                <h4 style="color: var(--accent); text-align: center; margin-bottom: 20px;">
+                    <i class="bi bi-calculator"></i> Calculadora de ROI
+                </h4>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                    <div style="background: rgba(0, 168, 150, 0.1); padding: 20px; border-radius: 10px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Investimento no Sistema Completo:</span>
+                            <strong>R$ 3.800</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Novos pacientes/mês (estimado):</span>
+                            <strong>8-12 pacientes</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Ticket médio por paciente:</span>
+                            <strong>R$ 300-500</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 1.1rem; padding-top: 15px; border-top: 1px dashed var(--glass-border);">
+                            <span><strong>Retorno em 2-3 meses:</strong></span>
+                            <strong style="color: var(--accent);">R$ 7.200-12.000/mês</strong>
+                        </div>
+                    </div>
+                    <p style="text-align: center; color: var(--gray); font-size: 0.85rem;">
+                        <i class="bi bi-info-circle"></i> Baseado em clínicas similares que implementaram nosso sistema
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="content-section">
+            <div class="section-header">
+                <h2>Cronograma de <span class="highlight">Implementação</span></h2>
+                <p>Da contratação ao site no ar em 15-20 dias úteis</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h4>Briefing e Planejamento (1-2 dias)</h4>
+                        <p>Reunião para entender profundamente sua clínica, especialidades e objetivos. Definição de estrutura e funcionalidades.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h4>Design e Protótipo (3-5 dias)</h4>
+                        <p>Criação do layout personalizado, paleta de cores odontológica e fluxo de navegação. Aprovação do visual antes do desenvolvimento.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h4>Desenvolvimento (5-7 dias)</h4>
+                        <p>Programação do site e sistema. Integração com WhatsApp, Google Agenda e ferramentas necessárias.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h4>Conteúdo e SEO (3-4 dias)</h4>
+                        <p>Otimização para busca, criação de textos profissionais e upload de imagens. Preparação para aparecer no Google.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h4>Testes e Ajustes (2-3 dias)</h4>
+                        <p>Testes em todos os dispositivos, verificação de agendamentos e treinamento da equipe.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">6</div>
+                    <div class="timeline-content">
+                        <h4>Lançamento e Suporte (contínuo)</h4>
+                        <p>Site no ar, monitoramento e suporte técnico. Acompanhamento de resultados e otimizações.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-estimate">
+                <h4>Tempo Total Estimado</h4>
+                <div class="days">15-20 dias</div>
+                <p>Dias úteis da contratação até o site no ar</p>
+            </div>
+
+            <div class="glass-card" style="margin-top: 40px;">
+                <h4 style="color: var(--accent); text-align: center; margin-bottom: 15px;">
+                    <i class="bi bi-calendar-week"></i> O que você precisa fornecer:
+                </h4>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: rgba(0, 168, 150, 0.05); border-radius: 8px;">
+                        <i class="bi bi-check-circle" style="color: var(--accent);"></i>
+                        <span>Logotipo e cores da clínica</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: rgba(0, 168, 150, 0.05); border-radius: 8px;">
+                        <i class="bi bi-check-circle" style="color: var(--accent);"></i>
+                        <span>Fotos da clínica e equipe</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: rgba(0, 168, 150, 0.05); border-radius: 8px;">
+                        <i class="bi bi-check-circle" style="color: var(--accent);"></i>
+                        <span>Textos sobre serviços e especialidades</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: rgba(0, 168, 150, 0.05); border-radius: 8px;">
+                        <i class="bi bi-check-circle" style="color: var(--accent);"></i>
+                        <span>Informações de contato e endereço</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accept Section -->
+        <section id="accept" class="content-section">
+            <div class="section-header">
+                <h2>Como <span class="highlight">Fechar</span> este Projeto</h2>
+                <p>Próximos passos para transformar sua clínica digitalmente</p>
+            </div>
+
+            <div class="accept-section">
+                <div class="glass-card accept-card">
+                    <div class="quote">
+                        "A tecnologia não substitui o cuidado humano, mas quando bem aplicada, potencializa a excelência do atendimento e amplia o alcance da saúde bucal."
+                    </div>
+
+                    <div class="signature-box">
+                        <h4>Pedro Henrique</h4>
+                        <p class="role">Diretor de Projetos & Especialista em Clínicas Odontológicas</p>
+                        <p class="motto">"Transformando sorrisos através da tecnologia"</p>
+                    </div>
+
+                    <div class="ps-note">
+                        <p><strong>P.S.:</strong> Esta proposta foi personalizada após análise do mercado odontológico local e entendimento das necessidades específicas de clínicas como a CDT Odontologia/Prime Odonto.</p>
+                        <p><strong>Validade da proposta:</strong> 15 dias a partir da data de envio.</p>
+                    </div>
+
+                    <!-- WhatsApp CTA Section -->
+                    <div class="whatsapp-cta-section">
+                        <i class="bi bi-whatsapp"></i>
+                        <h3>Vamos transformar sua clínica?</h3>
+                        <p>Clique abaixo para conversar diretamente comigo no WhatsApp. Responderei em poucos minutos para esclarecer dúvidas ou já iniciarmos o projeto!</p>
+                        
+                        <a href="https://wa.me/5521997596402?text=Olá Pedro! Vi a proposta para a CDT Odontologia/Prime Odonto e quero fechar o projeto! 🦷" class="btn btn-whatsapp" target="_blank" id="final-wpp-btn">
+                            <i class="bi bi-whatsapp"></i>
+                            FECHAR PROJETO NO WHATSAPP
+                        </a>
+
+                        <div class="whatsapp-steps">
+                            <div class="whatsapp-step">
+                                <div class="step-num">1</div>
+                                <p>Clique no botão</p>
+                            </div>
+                            <div class="whatsapp-step">
+                                <div class="step-num">2</div>
+                                <p>Confirme o pacote</p>
+                            </div>
+                            <div class="whatsapp-step">
+                                <div class="step-num">3</div>
+                                <p>Iniciamos hoje!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alternative Contact -->
+                    <div style="margin-top: 40px; text-align: center;">
+                        <p style="color: var(--gray); margin-bottom: 15px;">Prefere outras formas de contato?</p>
+                        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 0 auto;">
+                            <a href="tel:+5521997596402" class="btn btn-secondary">
+                                <i class="bi bi-telephone"></i> Ligar: (21) 99759-6402
+                            </a>
+                            <a href="mailto:contato@weblytics.com.br" class="btn btn-secondary">
+                                <i class="bi bi-envelope"></i> E-mail: contato@weblytics.com.br
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>WEBLYTICS</h3>
+                    <p>Especialistas em soluções digitais para clínicas odontológicas</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <div class="contact-item">
+                        <i class="bi bi-whatsapp"></i>
+                        <span>(21) 99759-6402</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span>contato@weblytics.com.br</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-clock"></i>
+                        <span>Seg - Sex: 9h às 18h</span>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Conecte-se</h4>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Weblytics - Soluções Digitais. Todos os direitos reservados.</p>
+                <p class="validity">Proposta válida por 15 dias - Emitida em: <span id="current-date"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5521997596402?text=Olá! Vi a proposta da Weblytics para a CDT Odontologia/Prime Odonto e gostaria de conversar!" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+        <div class="tooltip">Falar no WhatsApp</div>
+    </a>
+
+    <!-- Print Button -->
+    <div class="print-btn" id="print-btn" aria-label="Imprimir proposta">
+        <i class="bi bi-printer"></i>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="bi bi-check-circle"></i>
+        <span>Link copiado para o WhatsApp!</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Set current date
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('pt-BR');
+
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+            
+            // Header scroll effect
+            if (window.scrollY > 50) {
+                document.getElementById('header').classList.add('scrolled');
+            } else {
+                document.getElementById('header').classList.remove('scrolled');
+            }
+        });
+
+        // Particles Background
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random type
+                if (Math.random() > 0.7) particle.classList.add('tooth');
+                if (Math.random() > 0.8) particle.classList.add('cherry');
+                
+                // Random position and size
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.width = (Math.random() * 8 + 2) + 'px';
+                particle.style.height = particle.style.width;
+                
+                // Random animation delay
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+
+        // Tab Navigation
+        const tabs = document.querySelectorAll('.nav-tab');
+        const sections = document.querySelectorAll('.content-section');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetId = tab.getAttribute('data-tab');
+                
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Show target section
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    }
+                });
+                
+                // Scroll to section on mobile
+                if (window.innerWidth < 768) {
+                    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Explore Button
+        document.getElementById('explore-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('overview').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Package Selection
+        document.querySelectorAll('.select-package-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const packageName = this.closest('.package-card').querySelector('h3').textContent;
+                showToast(`Interesse no pacote ${packageName} registrado!`);
+            });
+        });
+
+        // Print Functionality
+        document.getElementById('print-btn').addEventListener('click', () => {
+            window.print();
+        });
+
+        // Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            if (message) toast.querySelector('span').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // WhatsApp Click Tracking
+        document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
+            link.addEventListener('click', function() {
+                const packageType = this.textContent.includes('Cereja') ? 'CEREJA_DO_BOLO' :
+                                  this.textContent.includes('Avançado') ? 'SITE_AVANCADO' :
+                                  this.textContent.includes('Básica') ? 'SITE_AGENDA' :
+                                  this.textContent.includes('Institucional') ? 'SITE_BASICO' : 'GERAL';
+                
+                // Simulate tracking (in real scenario, send to analytics)
+                console.log(`WhatsApp click: ${packageType} - ${new Date().toISOString()}`);
+                
+                // Create confetti effect
+                createConfetti();
+            });
+        });
+
+        // Confetti Effect
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#00a896', '#4cc9f0', '#ffd166'];
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize first section as active
+        document.addEventListener('DOMContentLoaded', () => {
+            // Activate first tab and section
+            tabs[0].click();
+            
+            // Add loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Mobile menu toggle (if needed in future)
+        // Add this if you want a hamburger menu for mobile
+    </script>
+</body>
+</html>
